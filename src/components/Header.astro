@@ -1,19 +1,22 @@
 ---
+import { withBase } from '../utils/paths';
+
 const navigation = [
-	{ href: '/', label: 'Home' },
-	{ href: '/events', label: 'Events' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
+	{ path: '', label: 'Home' },
+	{ path: 'events/', label: 'Events' },
+	{ path: 'about/', label: 'About' },
+	{ path: 'contact/', label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
+const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBase(path);
 ---
 
 <header class="site-header">
 	<div class="container header-inner">
-		<a class="brand" href="/" aria-label="Aberdare Motor Club home">
+		<a class="brand" href={withBase()} aria-label="Aberdare Motor Club home">
 			<span class="brand-mark" aria-hidden="true">
-				<img src="/images/motorclub-logo.png" alt="" width="400" height="400" />
+				<img src={withBase('images/motorclub-logo.png')} alt="" width="400" height="400" />
 			</span>
 			<span class="brand-copy">
 				<span class="brand-name">Aberdare Motor Club</span>
@@ -40,8 +43,8 @@ const currentPath = Astro.url.pathname;
 				{navigation.map((item) => (
 					<li>
 						<a
-							href={item.href}
-							aria-current={currentPath === item.href ? 'page' : undefined}
+							href={withBase(item.path)}
+							aria-current={isCurrent(item.path) ? 'page' : undefined}
 						>
 							{item.label}
 						</a>

@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../utils/paths';
+
 interface Props {
 	title?: string;
 }
@@ -9,17 +11,17 @@ const {
 
 const slides = [
 	{
-		src: '/images/hero/rally-tarmac.jpg',
+		src: withBase('images/hero/rally-tarmac.jpg'),
 		alt: 'Rally car competing on a wet tarmac stage in the Welsh hills',
 		position: '38% center',
 	},
 	{
-		src: '/images/hero/autotest.jpg',
+		src: withBase('images/hero/autotest.jpg'),
 		alt: 'Competition car navigating an autotest course in a Welsh valley',
 		position: '38% center',
 	},
 	{
-		src: '/images/hero/forest-rally.jpg',
+		src: withBase('images/hero/forest-rally.jpg'),
 		alt: 'Classic rally car competing on a gravel forestry stage',
 		position: '38% center',
 	},
@@ -58,7 +60,7 @@ const slides = [
 	<div class="hero-content">
 		<img
 			class="hero-logo"
-			src="/images/motorclub-logo.png"
+			src={withBase('images/motorclub-logo.png')}
 			alt=""
 			width="400"
 			height="400"
@@ -67,8 +69,8 @@ const slides = [
 		/>
 		<h1>{title}</h1>
 		<div class="hero-actions">
-			<a class="button button-primary" href="/contact">Join the club</a>
-			<a class="button button-secondary" href="/events">View events</a>
+			<a class="button button-primary" href={withBase('contact/')}>Join the club</a>
+			<a class="button button-secondary" href={withBase('events/')}>View events</a>
 		</div>
 	</div>
 

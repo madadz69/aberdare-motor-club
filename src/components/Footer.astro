@@ -1,5 +1,7 @@
 ---
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { withBase } from '../utils/paths';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -9,9 +11,9 @@ const currentYear = new Date().getFullYear();
       <div class="col-12 col-md-5">
         <div class="row g-3 align-items-center">
           <div class="col-auto">
-            <a class="footer-brand" href="/" aria-label="Aberdare Motor Club home">
+            <a class="footer-brand" href={withBase()} aria-label="Aberdare Motor Club home">
               <img
-                src="/images/motorclub-logo.png"
+                src={withBase('images/motorclub-logo.png')}
                 alt=""
                 width="400"
                 height="400"
@@ -32,7 +34,7 @@ const currentYear = new Date().getFullYear();
         <p class="footer-copy">
           Questions about joining, competing or volunteering with the club?
         </p>
-        <a class="footer-link" href="/contact">
+        <a class="footer-link" href={withBase('contact/')}>
           Get in touch <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
