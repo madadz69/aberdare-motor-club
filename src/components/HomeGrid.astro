@@ -1,0 +1,154 @@
+---
+const items = [
+	{
+		title: 'Motorsport',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+	},
+	{
+		title: 'Club events',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus.',
+	},
+	{
+		title: 'Our community',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.',
+	},
+	{
+		title: 'Become a member',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada.',
+	},
+];
+---
+
+<section class="content-grid" data-home-grid aria-labelledby="discover-heading">
+	<div class="container">
+		<div class="section-heading" data-reveal>
+			<p class="section-eyebrow">Discover the club</p>
+			<h2 id="discover-heading">Get involved with Aberdare Motor Club</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at
+				lobortis.
+			</p>
+		</div>
+
+		<div class="row g-4">
+			{items.map((item, index) => (
+				<div
+					class="col-12 col-md-6"
+					data-reveal
+					style={`--reveal-delay: ${(index + 1) * 70}ms`}
+				>
+					<article class="card h-100">
+						<div class="card-body p-4 p-lg-5">
+							<h3>{item.title}</h3>
+							<p>{item.text}</p>
+						</div>
+					</article>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<script>
+	const section = document.querySelector<HTMLElement>('[data-home-grid]');
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+	if (section && !reducedMotion.matches && 'IntersectionObserver' in window) {
+		const revealItems = section.querySelectorAll<HTMLElement>('[data-reveal]');
+		section.dataset.revealReady = 'true';
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				entry.target.classList.toggle('is-visible', entry.isIntersecting);
+			});
+		}, {
+			threshold: 0.15,
+			rootMargin: '0px 0px -8% 0px',
+		});
+
+		revealItems.forEach((item) => observer.observe(item));
+	}
+</script>
+
+<style>
+	.content-grid {
+		width: 100%;
+		padding-block: clamp(3rem, 6vw, 5rem);
+		background: #f3f4f6;
+		color: #1f2937;
+	}
+
+	.section-heading {
+		max-width: 46rem;
+		margin-bottom: 2rem;
+	}
+
+	.section-eyebrow {
+		margin-bottom: 0.5rem;
+		color: #315fa8;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin-bottom: 0.75rem;
+		color: #111827;
+		font-size: clamp(1.8rem, 4vw, 2.75rem);
+		font-weight: 750;
+		letter-spacing: -0.025em;
+	}
+
+	.section-heading > p:last-child {
+		margin-bottom: 0;
+		color: #4b5563;
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+
+	.card {
+		border: 0;
+		border-top: 0.25rem solid #315fa8;
+		border-radius: 0.75rem;
+		box-shadow: 0 0.5rem 1.5rem rgba(17, 24, 39, 0.08);
+	}
+
+	h3 {
+		margin-bottom: 0.75rem;
+		color: #111827;
+		font-size: 1.25rem;
+		font-weight: 750;
+	}
+
+	.card p {
+		margin: 0;
+		color: #4b5563;
+		line-height: 1.7;
+	}
+
+	.content-grid[data-reveal-ready='true'] [data-reveal] {
+		opacity: 0;
+		filter: blur(0.35rem);
+		transform: translateY(1.5rem);
+		transition:
+			opacity 600ms ease var(--reveal-delay, 0ms),
+			filter 600ms ease var(--reveal-delay, 0ms),
+			transform 600ms ease var(--reveal-delay, 0ms);
+	}
+
+	.content-grid[data-reveal-ready='true'] [data-reveal].is-visible {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.content-grid[data-reveal-ready='true'] [data-reveal] {
+			opacity: 1;
+			filter: none;
+			transform: none;
+			transition: none;
+		}
+	}
+</style>

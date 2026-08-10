@@ -1,0 +1,177 @@
+---
+import "@fortawesome/fontawesome-free/css/all.min.css";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-main">
+    <div class="row g-4 g-lg-5">
+      <div class="col-12 col-md-5">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <a class="footer-brand" href="/" aria-label="Aberdare Motor Club home">
+              <img
+                src="/images/motorclub-logo.png"
+                alt=""
+                width="400"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+          <div class="col footer-brand-copy">
+            <p class="tagline">Welsh motorsport, events and community.</p>
+            <p class="affiliation">A Motorsport UK recognised club.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <h2 class="footer-heading">Contact us</h2>
+        <p class="footer-copy">
+          Questions about joining, competing or volunteering with the club?
+        </p>
+        <a class="footer-link" href="/contact">
+          Get in touch <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="col-12 col-md-3">
+        <h2 class="footer-heading">Follow the club</h2>
+        <nav class="social-links" aria-label="Social media">
+          <a
+            class="social-link"
+            href="https://www.facebook.com/OfficialAberdareMC"
+            aria-label="Aberdare Motor Club on Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a
+            class="social-link"
+            href="https://instagram.com/YOUR_ACCOUNT"
+            aria-label="Aberdare Motor Club on Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {currentYear} Aberdare Motor Club. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #111827;
+    color: #d1d5db;
+  }
+
+  .footer-main {
+    padding-block: 2.5rem;
+  }
+
+  .footer-brand {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-brand img {
+    display: block;
+    width: 6.5rem;
+    height: 6.5rem;
+    object-fit: contain;
+    filter: drop-shadow(0 0.3rem 0.45rem rgba(0, 0, 0, 0.3));
+  }
+
+  .tagline {
+    margin: 0;
+  }
+
+  .affiliation {
+    margin: 0.5rem 0 0;
+    color: #9ca3af;
+    font-size: 0.875rem;
+  }
+
+  .footer-heading {
+    margin: 0 0 0.75rem;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .footer-copy {
+    max-width: 22rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+  }
+
+  .footer-link,
+  .footer-brand:hover,
+  .footer-brand:focus-visible {
+    color: #fca5a5;
+  }
+
+  .footer-link {
+    font-weight: 700;
+    text-underline-offset: 0.2em;
+  }
+
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: #ffffff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-block: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #374151;
+    color: white;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    background: #dc2626;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .social-link {
+      transition: none;
+    }
+  }
+</style>
