@@ -1,0 +1,536 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Join the Club | Aberdare Motor Club"
+	description="Apply to join Aberdare Motor Club. Choose a 2026 membership and tell us how you would like to get involved."
+>
+	<section class="join-hero" aria-labelledby="join-heading">
+		<div class="container">
+			<p class="eyebrow">Become a member</p>
+			<h1 id="join-heading">Join Aberdare Motor Club</h1>
+			<p>
+				Whether you compete, marshal, support a crew or simply enjoy motorsport, there is a
+				place for you in the club.
+			</p>
+		</div>
+	</section>
+
+	<section class="join-content" aria-labelledby="application-heading">
+		<div class="container">
+			<div class="row g-4 g-xl-5 align-items-start">
+				<div class="col-12 col-lg-8">
+					<form class="membership-form" data-membership-form>
+						<div class="form-intro">
+							<p class="eyebrow">2026 membership</p>
+							<h2 id="application-heading">Membership application</h2>
+							<p>Complete one form for each club member. All fields marked * are required.</p>
+						</div>
+
+						<fieldset>
+							<legend>Your details</legend>
+							<div class="form-grid">
+								<div class="field field-wide">
+									<label for="full-name">Full name *</label>
+									<input id="full-name" name="full-name" type="text" autocomplete="name" required />
+								</div>
+								<div class="field">
+									<label for="email">Email address *</label>
+									<input id="email" name="email" type="email" autocomplete="email" required />
+								</div>
+								<div class="field">
+									<label for="telephone">Mobile number *</label>
+									<input id="telephone" name="telephone" type="tel" autocomplete="tel" required />
+								</div>
+								<div class="field field-wide">
+									<label for="address-line-1">Address line 1 *</label>
+									<input id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1" required />
+								</div>
+								<div class="field field-wide">
+									<label for="address-line-2">Address line 2</label>
+									<input id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2" />
+								</div>
+								<div class="field">
+									<label for="town">Town *</label>
+									<input id="town" name="town" type="text" autocomplete="address-level2" required />
+								</div>
+								<div class="field">
+									<label for="county">County</label>
+									<input id="county" name="county" type="text" autocomplete="address-level1" />
+								</div>
+								<div class="field">
+									<label for="postcode">Postcode *</label>
+									<input id="postcode" name="postcode" type="text" autocomplete="postal-code" required />
+								</div>
+							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>Choose your membership *</legend>
+							<div class="choice-grid">
+								<label class="choice">
+									<input type="radio" name="membership" value="Junior membership (under 18) — free" required />
+									<span><strong>Junior</strong><small>Under 18 · Free</small></span>
+								</label>
+								<label class="choice">
+									<input type="radio" name="membership" value="Full membership — £10" />
+									<span><strong>Full</strong><small>Individual · £10</small></span>
+								</label>
+								<label class="choice">
+									<input type="radio" name="membership" value="Joint membership — £15" />
+									<span><strong>Joint</strong><small>Two people · £15</small></span>
+								</label>
+							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>How are you involved in motorsport?</legend>
+							<p class="field-help">Select all that apply.</p>
+							<div class="checkbox-grid">
+								<label><input type="checkbox" name="motorsport-interests" value="Competitor" /> Competitor</label>
+								<label><input type="checkbox" name="motorsport-interests" value="Marshal" /> Marshal</label>
+								<label><input type="checkbox" name="motorsport-interests" value="Spectator" /> Spectator</label>
+								<label><input type="checkbox" name="motorsport-interests" value="Other" /> Other</label>
+							</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>Payment method *</legend>
+							<div class="payment-options">
+								<label><input type="radio" name="payment" value="Bank transfer" required /> Bank transfer</label>
+								<label><input type="radio" name="payment" value="Cash at the next club meeting" /> Cash at the next club meeting</label>
+							</div>
+						</fieldset>
+
+						<div class="consent-panel">
+							<label class="consent">
+								<input type="checkbox" name="data-consent" required />
+								<span>
+									I consent to the club storing and using my personal data to administer my membership
+									and involvement in club activities. I understand that only the Membership Secretary
+									and Treasurer will have access to these details. *
+								</span>
+							</label>
+							<label class="consent">
+								<input type="checkbox" name="rules-agreement" required />
+								<span>
+									I agree to follow the rules and constitution of Aberdare Motor Club, the Welsh
+									Association of Motor Clubs and Motorsport UK. *
+								</span>
+							</label>
+							<a class="downloads-link" href="https://www.aberdare-motor-club.co.uk/downloads" target="_blank" rel="noopener noreferrer">
+								View club rules and documents <span aria-hidden="true">&nearr;</span>
+							</a>
+						</div>
+
+						<div class="submit-row">
+							<button type="submit">Prepare membership email</button>
+							<p>Your email app will open with the completed application. Review it, then press send.</p>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-12 col-lg-4">
+					<aside class="membership-summary" aria-labelledby="summary-heading">
+						<h2 id="summary-heading">Membership at a glance</h2>
+						<dl>
+							<div><dt>Junior</dt><dd>Free</dd></div>
+							<div><dt>Full</dt><dd>£10</dd></div>
+							<div><dt>Joint</dt><dd>£15</dd></div>
+						</dl>
+						<div class="summary-note">
+							<h3>Bank transfer details</h3>
+							<div class="bank-details">
+								<p><span>Account name</span><strong>Aberdare Motor Club</strong></p>
+								<p><span>Sort code</span><strong>23-11-85</strong></p>
+								<p><span>Account number</span><strong>17706409</strong></p>
+								<p><span>Reference</span><strong>Member’s full name</strong></p>
+							</div>
+						</div>
+						<div class="summary-note">
+							<h3>Prefer cash?</h3>
+							<p>Bring payment to the next club meeting at the Ynyscynon Inn.</p>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>('[data-membership-form]');
+
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+
+		const data = new FormData(form);
+		const value = (name: string) => String(data.get(name) ?? '').trim();
+		const interests = data.getAll('motorsport-interests').map(String).join(', ') || 'Not specified';
+		const address = [
+			value('address-line-1'),
+			value('address-line-2'),
+			value('town'),
+			value('county'),
+			value('postcode'),
+		].filter(Boolean).join(', ');
+
+		const subject = `2026 membership application — ${value('full-name')}`;
+		const body = [
+			'2026 ABERDARE MOTOR CLUB MEMBERSHIP APPLICATION',
+			'',
+			`Name: ${value('full-name')}`,
+			`Email: ${value('email')}`,
+			`Mobile: ${value('telephone')}`,
+			`Address: ${address}`,
+			'',
+			`Membership: ${value('membership')}`,
+			`Motorsport involvement: ${interests}`,
+			`Payment method: ${value('payment')}`,
+			'',
+			'Data consent: Agreed',
+			'Club, WAMC and Motorsport UK rules: Agreed',
+		].join('\n');
+
+		window.location.href = `mailto:info@aberdaremotorclub.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+	});
+</script>
+
+<style>
+	.join-hero {
+		padding-block: clamp(4rem, 8vw, 6.5rem);
+		background:
+			radial-gradient(circle at 85% 20%, rgba(49, 95, 168, 0.55), transparent 32rem),
+			#0b1220;
+		color: #ffffff;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.65rem;
+		color: #fca5a5;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+	}
+
+	.join-hero h1 {
+		max-width: 50rem;
+		margin: 0;
+		font-size: clamp(2.5rem, 7vw, 4.75rem);
+		font-weight: 800;
+		letter-spacing: -0.04em;
+		line-height: 1;
+	}
+
+	.join-hero p:last-child {
+		max-width: 45rem;
+		margin: 1.25rem 0 0;
+		color: #d1d5db;
+		font-size: clamp(1.05rem, 2vw, 1.2rem);
+		line-height: 1.7;
+	}
+
+	.join-content {
+		padding-block: clamp(3rem, 6vw, 5rem);
+		background: #f3f4f6;
+		color: #1f2937;
+	}
+
+	.membership-form,
+	.membership-summary {
+		border-radius: 0.8rem;
+		background: #ffffff;
+		box-shadow: 0 0.6rem 1.75rem rgba(17, 24, 39, 0.08);
+	}
+
+	.membership-form {
+		padding: clamp(1.5rem, 4vw, 2.5rem);
+	}
+
+	.form-intro {
+		padding-bottom: 2rem;
+	}
+
+	.form-intro .eyebrow {
+		color: #315fa8;
+	}
+
+	.form-intro h2,
+	.membership-summary h2 {
+		margin: 0;
+		color: #111827;
+		font-size: clamp(1.75rem, 4vw, 2.4rem);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+	}
+
+	.form-intro p:last-child {
+		margin: 0.75rem 0 0;
+		color: #4b5563;
+	}
+
+	fieldset {
+		margin: 0;
+		border: 0;
+		border-top: 1px solid #e5e7eb;
+		padding: 2rem 0;
+	}
+
+	legend {
+		float: none;
+		width: auto;
+		margin: 0 0 1.25rem;
+		color: #111827;
+		font-size: 1.15rem;
+		font-weight: 800;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.field-wide {
+		grid-column: 1 / -1;
+	}
+
+	.field label {
+		display: block;
+		margin-bottom: 0.4rem;
+		font-size: 0.9rem;
+		font-weight: 750;
+	}
+
+	.field input {
+		width: 100%;
+		min-height: 3rem;
+		border: 1px solid #9ca3af;
+		border-radius: 0.45rem;
+		padding: 0.65rem 0.75rem;
+		background: #ffffff;
+		color: #111827;
+	}
+
+	.field input:focus {
+		border-color: #315fa8;
+		outline: 0.2rem solid rgba(49, 95, 168, 0.18);
+	}
+
+	.choice-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.75rem;
+	}
+
+	.choice {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.65rem;
+		border: 1px solid #d1d5db;
+		border-radius: 0.6rem;
+		padding: 1rem;
+		cursor: pointer;
+	}
+
+	.choice:has(input:checked) {
+		border-color: #315fa8;
+		background: #eff6ff;
+	}
+
+	.choice input,
+	.checkbox-grid input,
+	.payment-options input,
+	.consent input {
+		flex: 0 0 auto;
+		width: 1.1rem;
+		height: 1.1rem;
+		margin-top: 0.15rem;
+		accent-color: #315fa8;
+	}
+
+	.choice strong,
+	.choice small {
+		display: block;
+	}
+
+	.choice small {
+		margin-top: 0.2rem;
+		color: #4b5563;
+	}
+
+	.field-help {
+		margin: -0.85rem 0 1rem;
+		color: #6b7280;
+		font-size: 0.9rem;
+	}
+
+	.checkbox-grid,
+	.payment-options {
+		display: grid;
+		gap: 0.8rem 1.5rem;
+	}
+
+	.checkbox-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.checkbox-grid label,
+	.payment-options label {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.55rem;
+		cursor: pointer;
+	}
+
+	.consent-panel {
+		display: grid;
+		gap: 1rem;
+		border-radius: 0.6rem;
+		padding: 1.25rem;
+		background: #f3f4f6;
+	}
+
+	.consent {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.7rem;
+		font-size: 0.9rem;
+		line-height: 1.6;
+		cursor: pointer;
+	}
+
+	.downloads-link {
+		color: #315fa8;
+		font-size: 0.9rem;
+		font-weight: 750;
+	}
+
+	.submit-row {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.submit-row button {
+		flex: 0 0 auto;
+		min-height: 3rem;
+		border: 0;
+		border-radius: 0.45rem;
+		padding: 0.75rem 1.15rem;
+		background: #315fa8;
+		color: #ffffff;
+		font-weight: 800;
+		cursor: pointer;
+		transition: background 180ms ease, transform 180ms ease;
+	}
+
+	.submit-row button:hover,
+	.submit-row button:focus-visible {
+		background: #244b8f;
+		transform: translateY(-1px);
+	}
+
+	.submit-row p {
+		margin: 0;
+		color: #6b7280;
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+
+	.membership-summary {
+		position: sticky;
+		top: 5.5rem;
+		border-top: 0.3rem solid #315fa8;
+		padding: 1.75rem;
+	}
+
+	.membership-summary h2 {
+		font-size: 1.4rem;
+	}
+
+	.membership-summary dl {
+		margin: 1.25rem 0 0;
+	}
+
+	.membership-summary dl div {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		border-bottom: 1px solid #e5e7eb;
+		padding-block: 0.75rem;
+	}
+
+	.membership-summary dt {
+		font-weight: 650;
+	}
+
+	.membership-summary dd {
+		margin: 0;
+		color: #315fa8;
+		font-weight: 800;
+	}
+
+	.summary-note {
+		margin-top: 1.5rem;
+	}
+
+	.summary-note h3 {
+		margin: 0 0 0.35rem;
+		color: #111827;
+		font-size: 1rem;
+		font-weight: 800;
+	}
+
+	.summary-note p {
+		margin: 0;
+		color: #4b5563;
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+
+	.bank-details {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.bank-details p {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.75rem;
+	}
+
+	.bank-details span {
+		color: #6b7280;
+	}
+
+	.bank-details strong {
+		color: #111827;
+		text-align: right;
+	}
+
+	@media (max-width: 47.99rem) {
+		.form-grid,
+		.choice-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.submit-row {
+			align-items: stretch;
+			flex-direction: column;
+		}
+
+		.submit-row button {
+			width: 100%;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.submit-row button {
+			transition: none;
+		}
+	}
+</style>

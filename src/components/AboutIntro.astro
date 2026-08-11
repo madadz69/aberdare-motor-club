@@ -1,0 +1,124 @@
+---
+import { withBase } from '../utils/paths';
+---
+
+<section class="about-intro" id="about" aria-labelledby="about-heading">
+	<div class="container">
+		<div class="row align-items-center g-4 g-lg-5">
+			<div class="col-12 col-lg-7">
+				<p class="eyebrow">About the club</p>
+				<h2 id="about-heading">A local club with motorsport at its heart</h2>
+				<p class="lead">
+					Established in 1958, Aberdare Motor Club helps people across South Wales get involved
+					in motoring and motorsport.
+				</p>
+				<p>
+					Whether you want to compete, join a service crew, marshal or help organise an event,
+					the club offers practical advice and a friendly community. We are a Motorsport UK
+					recognised, non-profit club and welcome newcomers as well as experienced members.
+				</p>
+				<a class="about-link" href={withBase('events/')}>
+					See what’s on <span aria-hidden="true">&rarr;</span>
+				</a>
+			</div>
+
+			<div class="col-12 col-lg-5">
+				<aside class="about-card" aria-label="Club meeting details">
+					<p class="card-kicker">Club meetings</p>
+					<p class="meeting-day">Every second Monday</p>
+					<p class="meeting-details">
+						<span>7pm</span>
+						<span>The Ynyscynon Inn</span>
+						<span>Cwmbach Road, Aberdare</span>
+					</p>
+				</aside>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about-intro {
+		scroll-margin-top: 5rem;
+		padding-block: clamp(3.5rem, 7vw, 6rem);
+		background: #ffffff;
+		color: #374151;
+	}
+
+	.eyebrow,
+	.card-kicker {
+		margin: 0 0 0.65rem;
+		color: #315fa8;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		max-width: 46rem;
+		margin: 0 0 1.25rem;
+		color: #111827;
+		font-size: clamp(2rem, 4.5vw, 3.25rem);
+		font-weight: 800;
+		letter-spacing: -0.035em;
+		line-height: 1.08;
+		text-wrap: balance;
+	}
+
+	.lead {
+		color: #374151;
+		font-size: clamp(1.05rem, 2vw, 1.2rem);
+		line-height: 1.75;
+	}
+
+	.about-intro p:not(.eyebrow, .card-kicker) {
+		max-width: 47rem;
+		line-height: 1.75;
+	}
+
+	.about-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-top: 0.5rem;
+		color: #315fa8;
+		font-weight: 800;
+		text-decoration-thickness: 0.12em;
+		text-underline-offset: 0.25em;
+	}
+
+	.about-link:hover,
+	.about-link:focus-visible {
+		color: #244b8f;
+	}
+
+	.about-card {
+		border-left: 0.3rem solid #315fa8;
+		border-radius: 0.75rem;
+		padding: clamp(1.5rem, 4vw, 2.25rem);
+		background: #f3f4f6;
+		box-shadow: 0 0.75rem 2rem rgba(17, 24, 39, 0.08);
+	}
+
+	.meeting-day {
+		margin: 1rem 0 0.5rem;
+		color: #111827;
+		font-size: clamp(1.45rem, 3vw, 2rem);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		line-height: 1.15;
+	}
+
+	.about-card .meeting-details {
+		display: grid;
+		gap: 0.15rem;
+		margin: 0;
+		color: #4b5563;
+		line-height: 1.55;
+	}
+
+	.meeting-details span {
+		display: block;
+	}
+</style>
