@@ -1,0 +1,147 @@
+---
+const pageUrl = 'https://www.facebook.com/OfficialAberdareMC';
+const parameters = new URLSearchParams({
+	href: pageUrl,
+	tabs: 'timeline',
+	width: '280',
+	height: '600',
+	small_header: 'false',
+	adapt_container_width: 'true',
+	hide_cover: 'false',
+	show_facepile: 'false',
+});
+---
+
+<section class="club-updates" aria-labelledby="club-updates-heading">
+	<div class="container">
+		<div class="row align-items-center g-4 g-lg-5">
+			<div class="col-12 col-lg-6">
+				<p class="eyebrow">Club news</p>
+				<h2 id="club-updates-heading">Latest from the club</h2>
+				<p class="intro">
+					Catch up with Aberdare Motor Club on Facebook for event updates,
+					photos and news from our motorsport community.
+				</p>
+				<a class="facebook-link" href={pageUrl} target="_blank" rel="noopener noreferrer">
+					Visit our Facebook page <span class="visually-hidden">(opens in a new tab)</span>
+					<span aria-hidden="true">&rarr;</span>
+				</a>
+			</div>
+			<div class="col-12 col-lg-6">
+				<div class="feed-wrapper">
+					<iframe
+						data-facebook-feed
+						src={`https://www.facebook.com/plugins/page.php?${parameters}`}
+						title="Latest Facebook posts from Aberdare Motor Club"
+						width="280"
+						height="600"
+						loading="lazy"
+						allow="encrypted-media; picture-in-picture; web-share"
+					></iframe>
+					<p class="feed-help">
+						Feed not showing?
+						<a href={pageUrl} target="_blank" rel="noopener noreferrer">
+							Read the posts on Facebook<span class="visually-hidden"> (opens in a new tab)</span>
+						</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const feed = document.querySelector<HTMLIFrameElement>('[data-facebook-feed]');
+	const wrapper = feed?.parentElement;
+
+	if (feed && wrapper) {
+		// Facebook renders at a fixed pixel width; update it when the container changes.
+		const resizeFeed = () => {
+			const width = Math.min(500, Math.max(180, Math.floor(wrapper.clientWidth)));
+			const source = new URL(feed.src);
+			if (source.searchParams.get('width') === String(width)) return;
+			source.searchParams.set('width', String(width));
+			feed.width = String(width);
+			feed.src = source.toString();
+		};
+
+		resizeFeed();
+		if ('ResizeObserver' in window) {
+			let resizeTimer: ReturnType<typeof setTimeout>;
+			new ResizeObserver(() => {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(resizeFeed, 200);
+			}).observe(wrapper);
+		}
+	}
+</script>
+
+<style>
+	.club-updates {
+		padding-block: clamp(3rem, 6vw, 5rem);
+		background: #fff;
+		color: #4b5563;
+	}
+
+	.eyebrow {
+		margin-bottom: 0.5rem;
+		color: #315fa8;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin-bottom: 1rem;
+		color: #111827;
+		font-size: clamp(1.8rem, 4vw, 2.75rem);
+		font-weight: 750;
+		letter-spacing: -0.025em;
+	}
+
+	.intro {
+		max-width: 32rem;
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+
+	a {
+		color: #315fa8;
+		text-underline-offset: 0.25em;
+	}
+
+	a:hover,
+	a:focus-visible {
+		color: #244b8f;
+	}
+
+	.facebook-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 800;
+	}
+
+	.feed-wrapper {
+		width: 100%;
+		max-width: 500px;
+		margin-inline: auto;
+	}
+
+	iframe {
+		display: block;
+		max-width: 100%;
+		margin-inline: auto;
+		border: 0;
+		border-radius: 0.75rem;
+		background: #f3f4f6;
+		box-shadow: 0 0.5rem 1.5rem rgba(17, 24, 39, 0.08);
+	}
+
+	.feed-help {
+		margin: 1rem 0 0;
+		font-size: 0.875rem;
+		line-height: 1.6;
+	}
+</style>
