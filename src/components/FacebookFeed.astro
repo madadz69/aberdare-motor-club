@@ -30,7 +30,6 @@ const parameters = new URLSearchParams({
 			<div class="col-12 col-lg-6">
 				<div class="feed-wrapper">
 					<iframe
-						data-facebook-feed
 						src={`https://www.facebook.com/plugins/page.php?${parameters}`}
 						title="Latest Facebook posts from Aberdare Motor Club"
 						width="280"
@@ -49,32 +48,6 @@ const parameters = new URLSearchParams({
 		</div>
 	</div>
 </section>
-
-<script>
-	const feed = document.querySelector<HTMLIFrameElement>('[data-facebook-feed]');
-	const wrapper = feed?.parentElement;
-
-	if (feed && wrapper) {
-		// Facebook renders at a fixed pixel width; update it when the container changes.
-		const resizeFeed = () => {
-			const width = Math.min(500, Math.max(180, Math.floor(wrapper.clientWidth)));
-			const source = new URL(feed.src);
-			if (source.searchParams.get('width') === String(width)) return;
-			source.searchParams.set('width', String(width));
-			feed.width = String(width);
-			feed.src = source.toString();
-		};
-
-		resizeFeed();
-		if ('ResizeObserver' in window) {
-			let resizeTimer: ReturnType<typeof setTimeout>;
-			new ResizeObserver(() => {
-				clearTimeout(resizeTimer);
-				resizeTimer = setTimeout(resizeFeed, 200);
-			}).observe(wrapper);
-		}
-	}
-</script>
 
 <style>
 	.club-updates {
