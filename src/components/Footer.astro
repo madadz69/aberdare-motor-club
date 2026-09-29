@@ -66,8 +66,12 @@ const currentYear = new Date().getFullYear();
   </div>
 
   <div class="footer-bottom">
-    <div class="container">
+    <div class="container footer-bottom-content">
       <p>&copy; {currentYear} Aberdare Motor Club. All rights reserved.</p>
+      <p class="design-credit">
+        <span class="design-credit-label">Website by</span>
+        <span class="design-credit-name">JenkoWeb Ltd</span>
+      </p>
     </div>
   </div>
 </footer>
@@ -136,13 +140,61 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-bottom {
-    border-top: 1px solid #374151;
-    padding-block: 1rem;
-    font-size: 0.875rem;
+    border-top: 1px solid #293345;
+    padding-block: 1.25rem;
+    color: #9ca3af;
+    font-size: 0.8125rem;
+    line-height: 1.6;
   }
 
   .footer-bottom p {
     margin: 0;
+  }
+
+  .footer-bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+  }
+
+  .footer-bottom .design-credit {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .design-credit-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .design-credit-name {
+    color: #e5e7eb;
+    font-weight: 600;
+  }
+
+  .design-credit-copyright {
+    display: inline-block;
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid #374151;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 575px) {
+    .footer-bottom-content {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .footer-bottom .design-credit {
+      width: 100%;
+      padding-top: 1rem;
+      border-top: 1px solid #293345;
+    }
   }
 
   .social-links {
