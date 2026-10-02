@@ -4,8 +4,9 @@ import { withBase } from '../utils/paths';
 const navigation = [
 	{ path: '', label: 'Home' },
 	{ path: 'events/', label: 'Events' },
-	{ path: 'join/', label: 'Join' },
+	{ path: '#about', label: 'Our club' },
 	{ path: 'contact/', label: 'Contact' },
+	{ path: 'join/', label: 'Join' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -52,6 +53,7 @@ const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBas
 				))}
 			</ul>
 		</nav>
+		<a class="header-join action action-outline" href={withBase('join/')}>Join the club <span aria-hidden="true">→</span></a>
 	</div>
 </header>
 
@@ -110,11 +112,20 @@ const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBas
 </script>
 
 <style>
+  .brand-name { font-family: var(--display); text-transform: uppercase; letter-spacing: .055em !important; font-size: 1.4rem !important; }
+  .brand-tagline { letter-spacing: .2em !important; }
+  .brand-mark { width: 4.5rem; }
+  nav { margin-left: auto; }
+  @media (min-width: 992px) { nav li:last-child { display: none; } }
+  nav a[aria-current='page']::after { position: absolute; content: ''; bottom: .2rem; left: .9rem; right: .9rem; height: 2px; background: var(--gold); }
+  @media (max-width: 991px) { .header-join { display: none; } }
+  @media (max-width: 767px) { .brand-name { font-size: 1.1rem !important; } .brand-tagline { font-size: .6rem; } }
+
 	.site-header {
 		position: sticky;
 		top: 0;
 		z-index: 20;
-		background: rgba(11, 18, 32, 0.96);
+		background: rgba(17, 23, 25, 0.97);
 		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0.5rem 1.5rem rgba(3, 7, 18, 0.16);
 		color: #ffffff;
 		backdrop-filter: blur(12px);
@@ -191,7 +202,7 @@ const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBas
 	nav a {
 		position: relative;
 		display: block;
-		border-radius: 0.45rem;
+		border-radius: 0;
 		padding: 0.65rem 0.9rem;
 		color: #d1d5db;
 		font-size: 0.95rem;
@@ -233,8 +244,8 @@ const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBas
 	}
 
 	nav a[aria-current='page'] {
-		background: #315fa8;
-		color: #ffffff;
+		background: transparent;
+		color: var(--gold);
 	}
 
 	.menu-toggle {
@@ -242,7 +253,7 @@ const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBas
 		width: 2.75rem;
 		height: 2.75rem;
 		border: 1px solid #4b5563;
-		border-radius: 0.5rem;
+		border-radius: 0;
 		background: rgba(255, 255, 255, 0.04);
 		color: inherit;
 		cursor: pointer;
@@ -251,8 +262,8 @@ const isCurrent = (path: string) => currentPath.replace(/\/+$/, '/') === withBas
 
 	.menu-toggle:hover,
 	.menu-toggle:focus-visible {
-		border-color: #6f98f2;
-		background: #315fa8;
+		border-color: var(--gold);
+		background: transparent;
 	}
 
 	.menu-icon,

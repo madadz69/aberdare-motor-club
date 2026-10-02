@@ -55,7 +55,7 @@ import { withBase } from '../utils/paths';
 		display: grid;
 		min-height: clamp(25rem, 48vw, 34rem);
 		overflow: hidden;
-		background: #0b1220;
+		background: var(--ink);
 		color: #ffffff;
 	}
 
@@ -93,7 +93,7 @@ import { withBase } from '../utils/paths';
 
 	.eyebrow {
 		margin: 0 0 0.75rem;
-		color: #fca5a5;
+		color: var(--gold);
 		font-size: 0.8rem;
 		font-weight: 800;
 		letter-spacing: 0.14em;
@@ -105,7 +105,7 @@ import { withBase } from '../utils/paths';
 		margin: 0;
 		font-size: clamp(2.5rem, 7vw, 4.75rem);
 		font-weight: 800;
-		letter-spacing: -0.035em;
+		letter-spacing: .02em;
 		line-height: 1;
 		text-wrap: balance;
 	}
@@ -121,13 +121,13 @@ import { withBase } from '../utils/paths';
 
 	.events-calendar {
 		padding-block: clamp(3rem, 6vw, 5rem);
-		background: #f3f4f6;
+		background: var(--paper);
 		color: #1f2937;
 	}
 
 	.events-calendar h2 {
 		margin: 0 0 0.75rem;
-		color: #111827;
+		color: var(--ink);
 		font-size: clamp(1.75rem, 4vw, 2.5rem);
 		font-weight: 750;
 		letter-spacing: -0.025em;
@@ -145,7 +145,7 @@ import { withBase } from '../utils/paths';
 		height: clamp(37.5rem, 58vw, 43rem);
 		margin-top: 2rem;
 		border: 0;
-		border-radius: 0.75rem;
+		border-radius: 0;
 		background: #ffffff;
 		box-shadow: 0 0.5rem 1.5rem rgba(17, 24, 39, 0.1);
 	}

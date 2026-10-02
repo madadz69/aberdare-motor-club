@@ -6,24 +6,24 @@ interface Props {
 }
 
 const {
-	title = 'Welcome to Aberdare Motor Club',
+	title = 'Motorsport.\nIt’s in our blood.',
 } = Astro.props;
 
 const slides = [
 	{
-		src: withBase('images/hero/rally-tarmac.jpg'),
-		alt: 'Rally car competing on a wet tarmac stage in the Welsh hills',
-		position: '38% center',
+		src: withBase('images/events/mk2-escort-forest.webp'),
+		alt: 'Classic Mk2 Escort on a forest rally stage',
+		position: '65% center',
 	},
 	{
 		src: withBase('images/hero/autotest.jpg'),
 		alt: 'Competition car navigating an autotest course in a Welsh valley',
-		position: '38% center',
+		position: '65% center',
 	},
 	{
 		src: withBase('images/hero/forest-rally.jpg'),
 		alt: 'Classic rally car competing on a gravel forestry stage',
-		position: '38% center',
+		position: '65% center',
 	},
 ];
 ---
@@ -57,22 +57,16 @@ const slides = [
 
 	<div class="hero-shade" aria-hidden="true"></div>
 
-	<div class="hero-content">
-		<img
-			class="hero-logo"
-			src={withBase('images/motorclub-logo.png')}
-			alt=""
-			width="400"
-			height="400"
-			loading="eager"
-			decoding="async"
-		/>
-		<h1>{title}</h1>
-		<div class="hero-actions">
-			<a class="button button-primary" href={withBase('join/')}>Join the club</a>
-			<a class="button button-secondary" href={withBase('events/')}>View events</a>
-		</div>
-	</div>
+	<div class="container hero-content">
+    <p class="hero-eyebrow">South Wales · Established 1958</p>
+    <h1>{title}</h1>
+    <p class="hero-intro">From your first club night to your next start line.<br class="desktop-break" /> A home for drivers, co-drivers, marshals and motorsport fans.</p>
+    <div class="hero-actions">
+      <a class="action" href={withBase('join/')}>Join the club <span aria-hidden="true">→</span></a>
+      <a class="action action-outline" href={withBase('events/')}>Explore events</a>
+    </div>
+    <p class="hero-footnote">Grassroots motorsport. A shared passion.</p>
+  </div>
 
 	<button class="arrow arrow-previous" type="button" data-previous aria-label="Previous image">
 		<span aria-hidden="true">&#8249;</span>
@@ -187,260 +181,38 @@ const slides = [
 </script>
 
 <style>
-	.hero {
-		position: relative;
-		flex: 1;
-		width: 100vw;
-		width: 100dvw;
-		margin-inline: calc(50% - 50vw);
-		margin-inline: calc(50% - 50dvw);
-		display: grid;
-		min-height: clamp(32rem, 70vh, 44rem);
-		place-items: center;
-		overflow: hidden;
-		isolation: isolate;
-		background: #111827;
-		color: #ffffff;
-	}
-
-	.slides,
-	.slide,
-	.slide img,
-	.hero-shade {
-		position: absolute;
-		inset: 0;
-	}
-
-	.slides {
-		z-index: -2;
-	}
-
-	.slide {
-		opacity: 0;
-		transition: opacity 900ms ease;
-	}
-
-	.slide[data-active='true'] {
-		opacity: 1;
-	}
-
-	.slide img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: var(--object-position, center);
-	}
-
-	.hero-shade {
-		z-index: -1;
-		background:
-			linear-gradient(90deg, rgba(3, 7, 18, 0.55), rgba(3, 7, 18, 0.15), rgba(3, 7, 18, 0.55)),
-			linear-gradient(0deg, rgba(3, 7, 18, 0.72), rgba(3, 7, 18, 0.1) 65%);
-	}
-
-	.hero-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: min(70rem, calc(100% - 9rem));
-		text-align: center;
-		text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
-	}
-
-	.hero-logo {
-		display: block;
-		width: clamp(8rem, 13vw, 11rem);
-		height: auto;
-		margin-top: 1.25rem;
-		filter: drop-shadow(0 0.4rem 0.65rem rgba(0, 0, 0, 0.4));
-	}
-
-	h1 {
-		max-width: 70rem;
-		margin: 0 auto;
-		color: #d1d5db;
-		font-family: Georgia, 'Times New Roman', serif;
-		font-size: clamp(1.85rem, 3.8vw, 3.25rem);
-		font-weight: 500;
-		letter-spacing: -0.02em;
-		line-height: 1.15;
-		text-wrap: balance;
-	}
-
-	.hero-actions {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: 1.75rem;
-	}
-
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 3rem;
-		border: 2px solid transparent;
-		border-radius: 0.35rem;
-		padding: 0.75rem 1.2rem;
-		font-weight: 800;
-		text-decoration: none;
-		text-shadow: none;
-		transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
-	}
-
-	.button:hover,
-	.button:focus-visible {
-		transform: translateY(-2px);
-	}
-
-	.button-primary {
-		background: #315fa8;
-		color: #ffffff;
-	}
-
-	.button-primary:hover,
-	.button-primary:focus-visible {
-		background: #244b8f;
-	}
-
-	.button-secondary {
-		border-color: rgba(255, 255, 255, 0.8);
-		background: rgba(17, 24, 39, 0.55);
-		color: #ffffff;
-		backdrop-filter: blur(4px);
-	}
-
-	.button-secondary:hover,
-	.button-secondary:focus-visible {
-		background: #ffffff;
-		color: #111827;
-	}
-
-	.arrow,
-	.pause-toggle,
-	.indicator {
-		border: 0;
-		color: #ffffff;
-		cursor: pointer;
-	}
-
-	.arrow {
-		position: absolute;
-		top: 50%;
-		display: grid;
-		width: 3rem;
-		height: 3rem;
-		place-items: center;
-		border: 1px solid rgba(255, 255, 255, 0.4);
-		border-radius: 50%;
-		background: rgba(17, 24, 39, 0.58);
-		font-size: 2.25rem;
-		line-height: 1;
-		transform: translateY(-50%);
-		backdrop-filter: blur(4px);
-	}
-
-	.arrow:hover,
-	.arrow:focus-visible,
-	.pause-toggle:hover,
-	.pause-toggle:focus-visible {
-		background: #315fa8;
-	}
-
-	.arrow-previous {
-		left: 1.5rem;
-	}
-
-	.arrow-next {
-		right: 1.5rem;
-	}
-
-	.carousel-controls {
-		position: absolute;
-		bottom: 1.5rem;
-		left: 50%;
-		display: flex;
-		align-items: center;
-		gap: 0.85rem;
-		transform: translateX(-50%);
-	}
-
-	.indicators {
-		display: flex;
-		align-items: center;
-		gap: 0.55rem;
-	}
-
-	.indicator {
-		width: 0.7rem;
-		height: 0.7rem;
-		border: 2px solid #ffffff;
-		border-radius: 50%;
-		padding: 0;
-		background: transparent;
-	}
-
-	.indicator[aria-current='true'] {
-		background: #ffffff;
-	}
-
-	.pause-toggle {
-		display: grid;
-		width: 2rem;
-		height: 2rem;
-		place-items: center;
-		border-radius: 50%;
-		background: rgba(17, 24, 39, 0.7);
-		font-size: 0.75rem;
-	}
-
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
-	}
-
-	@media (max-width: 47.99rem) {
-		.hero {
-			min-height: 34rem;
-		}
-
-		.hero-content {
-			width: calc(100% - 2rem);
-		}
-
-		.hero-logo {
-			width: 7.5rem;
-		}
-
-		.arrow {
-			top: auto;
-			bottom: 0.9rem;
-			width: 2.75rem;
-			height: 2.75rem;
-			transform: none;
-		}
-
-		.arrow-previous {
-			left: 0.5rem;
-		}
-
-		.arrow-next {
-			right: 0.5rem;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.slide,
-		.button {
-			transition: none;
-		}
-	}
+  .hero { position: relative; display: grid; align-items: center; min-height: 580px; overflow: hidden; isolation: isolate; background: var(--ink); color: var(--paper); }
+  .slides, .slide, .slide img, .hero-shade { position: absolute; inset: 0; }
+  .slides { z-index: -2; left: 23%; }
+  .slide { opacity: 0; transition: opacity 900ms ease; }
+  .slide[data-active='true'] { opacity: 1; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; object-position: var(--object-position, center); }
+  .hero-shade { z-index: -1; background: linear-gradient(90deg, #111719 10%, rgba(17,23,25,.94) 29%, rgba(17,23,25,.36) 60%, rgba(17,23,25,.08)), linear-gradient(0deg, #111719 0%, transparent 27%); }
+  .hero-content { padding-block: 4rem 5rem; }
+  .hero-eyebrow { margin-bottom: 1.75rem; color: var(--gold); font-family: var(--display); font-size: .85rem; letter-spacing: .22em; text-transform: uppercase; }
+  h1 { max-width: 680px; white-space: pre-line; margin: 0 0 1.5rem; font-size: clamp(3.5rem, 6vw, 5.3rem); font-weight: 400; letter-spacing: .015em; line-height: 1.02; }
+  .hero-intro { max-width: 32rem; font-size: 1.05rem; color: #e0e0da; line-height: 1.7; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+  .hero-footnote { margin: 2rem 0 0; color: #b8bab6; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; }
+  .arrow, .pause-toggle, .indicator { border: 1px solid #727571; background: rgba(17,23,25,.7); color: white; cursor: pointer; }
+  .arrow { position: absolute; bottom: 1.7rem; width: 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
+  .arrow-previous { right: 5rem; } .arrow-next { right: 1.7rem; }
+  .arrow:hover, .pause-toggle:hover { background: var(--red); }
+  .carousel-controls { position: absolute; right: 9rem; bottom: 1.7rem; display: flex; align-items: center; gap: 1rem; }
+  .indicators { display: flex; }
+  .indicator { width: 32px; height: 44px; border: 0; background: transparent; position: relative; }
+  .indicator::after { content: ''; position: absolute; height: 3px; left: 5px; right: 5px; top: 20px; background: #737570; }
+  .indicator[aria-current='true']::after { background: var(--gold); }
+  .pause-toggle { width: 44px; height: 44px; }
+  @media (max-width: 767px) {
+    .hero { min-height: 650px; align-items: end; }
+    .slides { left: 0; bottom: 30%; }
+    .hero-shade { background: linear-gradient(0deg, #111719 12%, rgba(17,23,25,.93) 38%, rgba(17,23,25,.08) 100%); }
+    .hero-content { padding-block: 10rem 6rem; }
+    h1 { font-size: clamp(3rem, 11vw, 4.7rem); }
+    .hero-eyebrow { margin-bottom: 1rem; font-size: .75rem; }
+    .hero-intro { font-size: .95rem; } .desktop-break { display: none; }
+    .hero-footnote { display: none; }
+    .hero-actions { gap: .6rem; } .action { padding-inline: 1rem; font-size: .85rem; }
+  }
 </style>

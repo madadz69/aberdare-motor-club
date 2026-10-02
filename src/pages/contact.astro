@@ -7,7 +7,7 @@ const people = [
 	{ role: 'Chairperson', description: 'Club direction, ideas and getting involved.' },
 	{ role: 'Club Secretary', description: 'General enquiries and club administration.' },
 	{ role: 'Membership Secretary', description: 'Joining the club and membership enquiries.' },
-	{ role: 'Treasurer', description: 'Membership payments and club finances.' },
+	{ name: 'Gerwyn Pittard', role: 'Treasurer', description: 'Membership payments and club finances.' },
 	{ role: 'Competition Secretary', description: 'Competing, events and taking your first steps in motorsport.' },
 	{ role: 'Chief Marshal', description: 'Marshalling, volunteering and helping at events.' },
 ];
@@ -34,7 +34,7 @@ const people = [
 			<div class="section-intro">
 				<p class="eyebrow">The people behind the club</p>
 				<h2 id="people-heading">Your club contacts</h2>
-				<p>Names, photos and individual contact details are coming soon. For now, email the club and let us know who you’d like to speak to.</p>
+				<p>More names, photos and individual contact details are coming soon. For now, email the club and let us know who you’d like to speak to.</p>
 			</div>
 			<div class="people-grid">
 				{people.map((person) => (
@@ -42,7 +42,7 @@ const people = [
 						<div class="person-placeholder" aria-hidden="true">
 							<i class="fa-solid fa-user"></i>
 						</div>
-						<p class="person-name">Name to be confirmed</p>
+						<p class="person-name">{person.name ?? 'Name to be confirmed'}</p>
 						<h3>{person.role}</h3>
 						<p class="person-description">{person.description}</p>
 						<p class="details-pending">Contact details coming soon</p>
@@ -63,13 +63,13 @@ const people = [
 <style>
 	.contact-hero {
 		padding-block: clamp(4rem, 8vw, 6.5rem);
-		background: radial-gradient(circle at 85% 20%, rgba(49, 95, 168, 0.55), transparent 32rem), #0b1220;
+		background: radial-gradient(circle at 85% 20%, rgba(155, 117, 45, 0.16), transparent 32rem), var(--ink);
 		color: #ffffff;
 	}
 
 	.eyebrow {
 		margin: 0 0 0.65rem;
-		color: #fca5a5;
+		color: var(--gold);
 		font-size: 0.8rem;
 		font-weight: 800;
 		letter-spacing: 0.13em;
@@ -80,7 +80,7 @@ const people = [
 		margin: 0;
 		font-size: clamp(2.5rem, 7vw, 4.75rem);
 		font-weight: 800;
-		letter-spacing: -0.04em;
+		letter-spacing: .02em;
 		line-height: 1.05;
 	}
 
@@ -97,16 +97,16 @@ const people = [
 		align-items: center;
 		gap: 0.65rem;
 		min-height: 3rem;
-		border-radius: 0.45rem;
+		border-radius: 0;
 		padding: 0.8rem 1.25rem;
-		background: #315fa8;
+		background: var(--red);
 		color: #ffffff;
 		font-weight: 750;
 		text-decoration: none;
 	}
 
-	.email-button:hover { background: #244b8f; }
-	a:focus-visible { outline: 3px solid #fca5a5; outline-offset: 4px; }
+	.email-button:hover { background: var(--red-dark); }
+	a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 
 	.email-address {
 		margin: 0.85rem 0 0;
@@ -117,13 +117,13 @@ const people = [
 
 	.contact-content {
 		padding-block: clamp(3rem, 6vw, 5rem);
-		background: #f3f4f6;
+		background: var(--paper);
 		color: #1f2937;
 	}
 
 	.section-intro { max-width: 43rem; margin-bottom: 2rem; }
-	.section-intro .eyebrow { color: #315fa8; }
-	h2 { margin: 0; color: #111827; font-size: clamp(1.75rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; }
+	.section-intro .eyebrow { color: var(--red); }
+	h2 { margin: 0; color: var(--ink); font-size: clamp(1.75rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; }
 	.section-intro > p:last-child { margin: 0.85rem 0 0; color: #4b5563; line-height: 1.7; }
 
 	.people-grid {
@@ -137,7 +137,7 @@ const people = [
 		flex-direction: column;
 		align-items: flex-start;
 		border: 1px solid #e5e7eb;
-		border-radius: 0.8rem;
+		border-radius: 0;
 		padding: 1.75rem;
 		background: #ffffff;
 		box-shadow: 0 0.6rem 1.75rem rgba(17, 24, 39, 0.05);
@@ -150,13 +150,13 @@ const people = [
 		height: 5rem;
 		margin-bottom: 1.5rem;
 		border-radius: 50%;
-		background: #eff6ff;
-		color: #315fa8;
+		background: #f5e9dc;
+		color: var(--red);
 		font-size: 2rem;
 	}
 
 	.person-name { margin: 0 0 0.4rem; color: #6b7280; font-size: 0.9rem; }
-	h3 { margin: 0; color: #111827; font-size: 1.25rem; font-weight: 800; }
+	h3 { margin: 0; color: var(--ink); font-size: 1.25rem; font-weight: 800; }
 	.person-description { margin: 0.75rem 0 1.5rem; color: #4b5563; line-height: 1.65; }
 	.details-pending { width: 100%; margin: auto 0 0; border-top: 1px solid #e5e7eb; padding-top: 1rem; color: #6b7280; font-size: 0.85rem; }
 
@@ -166,16 +166,16 @@ const people = [
 		justify-content: space-between;
 		gap: 1.5rem;
 		margin-top: 3rem;
-		border-left: 0.3rem solid #315fa8;
-		border-radius: 0.6rem;
+		border-left: 0.3rem solid var(--red);
+		border-radius: 0;
 		padding: 1.75rem;
-		background: #e8eef7;
+		background: #e2dccc;
 	}
 
 	.join-panel h2 { font-size: 1.4rem; }
 	.join-panel p { max-width: 40rem; margin: 0.5rem 0 0; color: #4b5563; line-height: 1.6; }
-	.join-panel a { flex-shrink: 0; padding-block: 0.65rem; color: #244b8f; font-weight: 750; text-underline-offset: 0.2em; }
-	.join-panel a:hover { color: #111827; }
+	.join-panel a { flex-shrink: 0; padding-block: 0.65rem; color: var(--red-dark); font-weight: 750; text-underline-offset: 0.2em; }
+	.join-panel a:hover { color: var(--ink); }
 
 	@media (max-width: 61.99rem) {
 		.people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

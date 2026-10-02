@@ -51,15 +51,6 @@ const currentYear = new Date().getFullYear();
           >
             <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
           </a>
-          <a
-            class="social-link"
-            href="https://instagram.com/YOUR_ACCOUNT"
-            aria-label="Aberdare Motor Club on Instagram"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
         </nav>
       </div>
     </div>
@@ -78,7 +69,8 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: #111827;
+    border-top: 1px solid #343a3a;
+    background: var(--ink);
     color: #d1d5db;
   }
 
@@ -126,7 +118,7 @@ const currentYear = new Date().getFullYear();
   .footer-link,
   .footer-brand:hover,
   .footer-brand:focus-visible {
-    color: #fca5a5;
+    color: var(--gold);
   }
 
   .footer-link {
@@ -208,8 +200,8 @@ const currentYear = new Date().getFullYear();
     place-items: center;
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 50%;
-    background: #374151;
+    border-radius: 0;
+    background: transparent; border: 1px solid #55584f;
     color: white;
     font-size: 1.25rem;
     text-decoration: none;

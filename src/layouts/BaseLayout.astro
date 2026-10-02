@@ -1,5 +1,6 @@
 ---
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/theme.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { withBase } from '../utils/paths';
@@ -27,9 +28,10 @@ const {
 		<title>{title}</title>
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
 		<Header />
 
-		<main>
+		<main id="main-content">
 			<slot />
 		</main>
 

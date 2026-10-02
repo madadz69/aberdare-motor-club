@@ -84,13 +84,13 @@ const parameters = new URLSearchParams({
 <style>
 	.club-updates {
 		padding-block: clamp(3rem, 6vw, 5rem);
-		background: #fff;
+		background: var(--paper);
 		color: #4b5563;
 	}
 
 	.eyebrow {
 		margin-bottom: 0.5rem;
-		color: #315fa8;
+		color: var(--red);
 		font-size: 0.8rem;
 		font-weight: 800;
 		letter-spacing: 0.12em;
@@ -99,9 +99,9 @@ const parameters = new URLSearchParams({
 
 	h2 {
 		margin-bottom: 1rem;
-		color: #111827;
+		color: var(--ink);
 		font-size: clamp(1.8rem, 4vw, 2.75rem);
-		font-weight: 750;
+		font-weight: 400;
 		letter-spacing: -0.025em;
 	}
 
@@ -112,13 +112,13 @@ const parameters = new URLSearchParams({
 	}
 
 	a {
-		color: #315fa8;
+		color: var(--red);
 		text-underline-offset: 0.25em;
 	}
 
 	a:hover,
 	a:focus-visible {
-		color: #244b8f;
+		color: var(--red-dark);
 	}
 
 	.facebook-link {
@@ -140,8 +140,8 @@ const parameters = new URLSearchParams({
 		height: 600px;
 		margin-inline: auto;
 		border: 0;
-		border-radius: 0.75rem;
-		background: #f3f4f6;
+		border-radius: 0;
+		background: var(--paper);
 		box-shadow: 0 0.5rem 1.5rem rgba(17, 24, 39, 0.08);
 	}
 

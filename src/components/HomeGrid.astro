@@ -1,154 +1,53 @@
 ---
+import { withBase } from '../utils/paths';
 const items = [
-	{
-		title: 'Compete',
-		text: 'Get advice and support as a driver or co-driver, whether you are taking your first step or already competing.',
-	},
-	{
-		title: 'Join a crew',
-		text: 'Be part of the action by helping a team as service or support crew at motorsport events.',
-	},
-	{
-		title: 'Marshal',
-		text: 'Help events run safely, meet experienced volunteers and see motorsport from a new perspective.',
-	},
-	{
-		title: 'Help organise',
-		text: 'Put your skills to work behind the scenes and help the club deliver enjoyable, well-run events.',
-	},
+  { title: 'Compete', image: 'hero/forest-rally.jpg', text: 'Advice and support for drivers and co-drivers, from your first step to your next event.' },
+  { title: 'Join a crew', image: 'hero/rally-tarmac.jpg', text: 'Get closer to the action. Help a team as service or support crew at motorsport events.' },
+  { title: 'Marshal', image: 'hero/autotest.jpg', text: 'Help events run safely, meet fellow volunteers and see motorsport from a new perspective.' },
+  { title: 'Help organise', image: 'events/mk2-escort-forest.webp', text: 'Bring your skills behind the scenes and help the club deliver enjoyable, well-run events.' },
 ];
 ---
-
-<section class="content-grid" data-home-grid aria-labelledby="discover-heading">
-	<div class="container">
-		<div class="section-heading" data-reveal>
-			<p class="section-eyebrow">Get involved</p>
-			<h2 id="discover-heading">Find your place in motorsport</h2>
-			<p>
-				You do not need to be behind the wheel to take part. Choose the route that interests
-				you and the club will help you get started.
-			</p>
-		</div>
-
-		<div class="row g-4">
-			{items.map((item, index) => (
-				<div
-					class="col-12 col-md-6"
-					data-reveal
-					style={`--reveal-delay: ${(index + 1) * 70}ms`}
-				>
-					<article class="card h-100">
-						<div class="card-body p-4 p-lg-5">
-							<h3>{item.title}</h3>
-							<p>{item.text}</p>
-						</div>
-					</article>
-				</div>
-			))}
-		</div>
-	</div>
+<section class="content-grid" aria-labelledby="discover-heading">
+  <div class="container">
+    <div class="section-heading">
+      <div><p class="section-label">Get involved</p><h2 id="discover-heading">There’s a place for you.</h2></div>
+      <p>You don’t need to be behind the wheel.<br />Just bring your enthusiasm.</p>
+    </div>
+    <div class="involvement-grid">
+      {items.map((item, index) => (
+        <a class="involvement-card" href={withBase('contact/')}>
+          <img src={withBase(`images/${item.image}`)} alt="" width="600" height="700" loading="lazy" />
+          <span class="card-number" aria-hidden="true">0{index + 1}</span>
+          <div class="card-copy">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <span class="card-link">Get involved <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="club-values"><span>Aberdare Motor Club</span><p>Drivers / Co-drivers / Crews / Marshals / Organisers</p><span>Since 1958</span></div>
+  </div>
 </section>
-
-<script>
-	const section = document.querySelector<HTMLElement>('[data-home-grid]');
-	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-	if (section && !reducedMotion.matches && 'IntersectionObserver' in window) {
-		const revealItems = section.querySelectorAll<HTMLElement>('[data-reveal]');
-		section.dataset.revealReady = 'true';
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				entry.target.classList.toggle('is-visible', entry.isIntersecting);
-			});
-		}, {
-			threshold: 0.15,
-			rootMargin: '0px 0px -8% 0px',
-		});
-
-		revealItems.forEach((item) => observer.observe(item));
-	}
-</script>
-
 <style>
-	.content-grid {
-		width: 100%;
-		padding-block: clamp(3rem, 6vw, 5rem);
-		background: #f3f4f6;
-		color: #1f2937;
-	}
-
-	.section-heading {
-		max-width: 46rem;
-		margin-bottom: 2rem;
-	}
-
-	.section-eyebrow {
-		margin-bottom: 0.5rem;
-		color: #315fa8;
-		font-size: 0.8rem;
-		font-weight: 800;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-	}
-
-	h2 {
-		margin-bottom: 0.75rem;
-		color: #111827;
-		font-size: clamp(1.8rem, 4vw, 2.75rem);
-		font-weight: 750;
-		letter-spacing: -0.025em;
-	}
-
-	.section-heading > p:last-child {
-		margin-bottom: 0;
-		color: #4b5563;
-		font-size: 1.05rem;
-		line-height: 1.7;
-	}
-
-	.card {
-		border: 0;
-		border-top: 0.25rem solid #315fa8;
-		border-radius: 0.75rem;
-		box-shadow: 0 0.5rem 1.5rem rgba(17, 24, 39, 0.08);
-	}
-
-	h3 {
-		margin-bottom: 0.75rem;
-		color: #111827;
-		font-size: 1.25rem;
-		font-weight: 750;
-	}
-
-	.card p {
-		margin: 0;
-		color: #4b5563;
-		line-height: 1.7;
-	}
-
-	.content-grid[data-reveal-ready='true'] [data-reveal] {
-		opacity: 0;
-		filter: blur(0.35rem);
-		transform: translateY(1.5rem);
-		transition:
-			opacity 600ms ease var(--reveal-delay, 0ms),
-			filter 600ms ease var(--reveal-delay, 0ms),
-			transform 600ms ease var(--reveal-delay, 0ms);
-	}
-
-	.content-grid[data-reveal-ready='true'] [data-reveal].is-visible {
-		opacity: 1;
-		filter: blur(0);
-		transform: translateY(0);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.content-grid[data-reveal-ready='true'] [data-reveal] {
-			opacity: 1;
-			filter: none;
-			transform: none;
-			transition: none;
-		}
-	}
+  .content-grid { background: var(--ink); color: var(--paper); padding-block: 3.5rem 0; }
+  .section-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1.8rem; }
+  .section-label { margin-bottom: .8rem; }
+  h2 { margin: 0; font-size: clamp(2rem, 3vw, 3rem); font-weight: 400; letter-spacing: .025em; }
+  .section-heading > p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+  .involvement-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .involvement-card { position: relative; display: flex; align-items: end; min-height: 340px; padding: 1.4rem; overflow: hidden; isolation: isolate; border: 1px solid #454a48; color: white; text-decoration: none; }
+  .involvement-card::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(0deg, #111719 0%, #111719d9 30%, #11171905 100%); }
+  .involvement-card img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 300ms ease; }
+  .involvement-card:hover { border-color: var(--gold); }
+  .involvement-card:hover img { transform: scale(1.045); }
+  .card-number { position: absolute; top: 1rem; left: 1.2rem; font-family: var(--display); font-size: .85rem; }
+  h3 { margin: 0 0 .7rem; font-size: 1.8rem; font-weight: 400; letter-spacing: .035em; }
+  .card-copy p { margin: 0 0 1.2rem; color: #dedfd9; font-size: .85rem; line-height: 1.65; }
+  .card-link { display: flex; align-items: center; justify-content: space-between; color: var(--gold); font-family: var(--display); text-transform: uppercase; font-size: .75rem; letter-spacing: .1em; }
+  .card-link span { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--gold); font-family: sans-serif; font-size: 1.1rem; }
+  .club-values { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; border-top: 1px solid #343a3a; padding-block: 1.4rem; font-family: var(--display); text-transform: uppercase; font-size: .7rem; letter-spacing: .13em; color: var(--muted); }
+  .club-values p { margin: 0; } .club-values > span:first-child { color: var(--gold); }
+  @media (max-width: 991px) { .involvement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .involvement-card { min-height: 310px; } }
+  @media (max-width: 575px) { .section-heading { display: block; } .section-heading > p { margin-top: 1rem; } .involvement-grid { grid-template-columns: 1fr; } .involvement-card { min-height: 300px; } .club-values { flex-wrap: wrap; } .club-values p { order: 3; width: 100%; line-height: 1.8; } }
 </style>
