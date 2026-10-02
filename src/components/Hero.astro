@@ -6,7 +6,7 @@ interface Props {
 }
 
 const {
-	title = 'Aberdare\nMotor Club',
+	title = 'Welcome to\nAberdare Motor Club',
 } = Astro.props;
 
 const slides = [
@@ -60,12 +60,12 @@ const slides = [
 	<div class="container hero-content">
     <p class="hero-eyebrow">South Wales · Established 1958</p>
     <h1>{title}</h1>
-    <p class="hero-intro">Motorsport. It’s in our blood.<br class="desktop-break" /> A home for drivers, co-drivers, marshals and motorsport fans.</p>
+    <p class="hero-intro">A shared interest in cars. A warm welcome.<br class="desktop-break" /> Join us for club nights, social events, motoring and motorsport.</p>
     <div class="hero-actions">
       <a class="action" href={withBase('join/')}>Join the club <span aria-hidden="true">→</span></a>
       <a class="action action-outline" href={withBase('events/')}>Explore events</a>
     </div>
-    <p class="hero-footnote">Grassroots motorsport. A shared passion.</p>
+    <p class="hero-footnote">Motoring. Motorsport. Good company.</p>
   </div>
 
 	<button class="arrow arrow-previous" type="button" data-previous aria-label="Previous image">

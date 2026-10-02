@@ -1,21 +1,21 @@
 ---
 import { withBase } from '../utils/paths';
 const items = [
-  { title: 'Compete', image: 'hero/forest-rally.jpg', text: 'Advice and support for drivers and co-drivers, from your first step to your next event.' },
-  { title: 'Join a crew', image: 'hero/rally-tarmac.jpg', text: 'Get closer to the action. Help a team as service or support crew at motorsport events.' },
-  { title: 'Marshal', image: 'hero/autotest.jpg', text: 'Help events run safely, meet fellow volunteers and see motorsport from a new perspective.' },
-  { title: 'Help organise', image: 'events/mk2-escort-forest.webp', text: 'Bring your skills behind the scenes and help the club deliver enjoyable, well-run events.' },
+  { title: 'Club nights', image: 'hero/autotest.jpg', path: 'contact/', text: 'Come along to a monthly meet at the Ynyscynon Inn. Meet the members, talk cars and catch up on club news.' },
+  { title: 'The social side', image: 'hero/rally-tarmac.jpg', path: 'events/', text: 'Our past calendar has included social runs, an interclub quiz and a celebration evening. See what’s coming up next.' },
+  { title: 'Try motorsport', image: 'hero/forest-rally.jpg', path: 'contact/', text: 'Interested in driving or co-driving? Talk to fellow members for advice on getting involved and taking your next step.' },
+  { title: 'Lend a hand', image: 'events/mk2-escort-forest.webp', path: 'contact/', text: 'Join a service crew, help marshal or support the people organising events. There are plenty of ways to take part.' },
 ];
 ---
 <section class="content-grid" aria-labelledby="discover-heading">
   <div class="container">
     <div class="section-heading">
       <div><p class="section-label">Get involved</p><h2 id="discover-heading">There’s a place for you.</h2></div>
-      <p>You don’t need to be behind the wheel.<br />Just bring your enthusiasm.</p>
+      <p>Meet up, join in or lend a hand.<br />Start with what interests you.</p>
     </div>
     <div class="involvement-grid">
       {items.map((item, index) => (
-        <a class="involvement-card" href={withBase('contact/')}>
+        <a class="involvement-card" href={withBase(item.path)}>
           <img src={withBase(`images/${item.image}`)} alt="" width="600" height="700" loading="lazy" />
           <span class="card-number" aria-hidden="true">0{index + 1}</span>
           <div class="card-copy">
@@ -26,7 +26,7 @@ const items = [
         </a>
       ))}
     </div>
-    <div class="club-values"><span>Aberdare Motor Club</span><p>Drivers / Co-drivers / Crews / Marshals / Organisers</p><span>Since 1958</span></div>
+    <div class="club-values"><span>Aberdare Motor Club</span><p>Club nights / Social events / Motoring / Motorsport</p><span>Since 1958</span></div>
   </div>
 </section>
 <style>
