@@ -6,7 +6,7 @@ interface Props {
 }
 
 const {
-	title = 'Welcome to\nAberdare Motor Club',
+	title = 'Aberdare\nMotor Club',
 } = Astro.props;
 
 const slides = [
@@ -65,6 +65,11 @@ const slides = [
       <a class="action" href={withBase('join/')}>Join the club <span aria-hidden="true">→</span></a>
       <a class="action action-outline" href={withBase('events/')}>Explore events</a>
     </div>
+    <a class="hero-facebook" href="https://www.facebook.com/OfficialAberdareMC" target="_blank" rel="noopener noreferrer">
+      <span class="facebook-icon" aria-hidden="true"><i class="fa-brands fa-facebook-f"></i></span>
+      <span class="facebook-copy"><span class="facebook-kicker">Stay in the loop</span><span class="facebook-label">Follow us on Facebook</span></span>
+      <span class="visually-hidden"> (opens in a new tab)</span>
+    </a>
     <p class="hero-footnote">Motoring. Motorsport. Good company.</p>
   </div>
 
@@ -194,6 +199,14 @@ const slides = [
   .hero-intro { max-width: 32rem; font-size: 1.05rem; color: #e0e0da; line-height: 1.7; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
   .hero-footnote { margin: 2rem 0 0; color: #b8bab6; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; }
+  .hero-facebook { display: flex; align-items: center; gap: .9rem; width: fit-content; max-width: 100%; margin-top: 1.6rem; padding: .75rem 1rem .75rem .75rem; border: 1px solid rgba(255,255,255,.2); border-left: 3px solid var(--gold); background: linear-gradient(120deg, rgba(255,255,255,.09), rgba(17,23,25,.65)); color: var(--paper); text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,.16); backdrop-filter: blur(12px); transition: transform 180ms ease, border-color 180ms ease, background 180ms ease; }
+  .facebook-icon { display: grid; place-items: center; flex: 0 0 auto; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: #1877f2; color: white; font-size: 1.35rem; box-shadow: 0 0 20px rgba(24,119,242,.25); }
+  .facebook-copy { display: grid; gap: .2rem; }
+  .facebook-kicker { color: var(--gold); font-size: .6rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .facebook-label { font-size: .9rem; font-weight: 650; }
+  .hero-facebook:hover { transform: translateY(-3px); border-color: var(--gold); background: linear-gradient(120deg, rgba(255,255,255,.14), rgba(17,23,25,.8)); }
+  .hero-facebook:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  @media (prefers-reduced-motion: reduce) { .hero-facebook { transition: none; } .hero-facebook:hover { transform: none; } }
   .arrow, .pause-toggle, .indicator { border: 1px solid #727571; background: rgba(17,23,25,.7); color: white; cursor: pointer; }
   .arrow { position: absolute; bottom: 1.7rem; width: 44px; height: 44px; font-size: 1.8rem; line-height: 1; }
   .arrow-previous { right: 5rem; } .arrow-next { right: 1.7rem; }
