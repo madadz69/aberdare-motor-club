@@ -14,7 +14,7 @@ import { withBase } from '../utils/paths';
     <div class="about-copy">
       <p class="section-label">Our club</p>
       <h2 id="about-heading">An interest in cars.<br />A club to share it.</h2>
-      <p>Aberdare Motor Club brings together people with an interest in motoring and motorsport. Come along to a club night, meet fellow enthusiasts and find out what’s happening.</p>
+      <p>Aberdare Motor Club is a <a class="recognition-link" href="https://motorsportuk.org/clubs-organisers/find-clubs/">Motorsport UK recognised club</a>, bringing together people with an interest in motoring and motorsport. Come along to a club night, meet fellow enthusiasts and find out what’s happening.</p>
       <p>Club life includes social outings, quizzes and getting together, as well as competing and helping at events. If you’d like to try motorsport, members can offer advice on driving, co-driving, crewing or marshalling. If you’re here for the cars and the company, you’re welcome too.</p>
       <a class="action" href={withBase('join/')}>Find your place <span aria-hidden="true">→</span></a>
     </div>
@@ -41,6 +41,8 @@ import { withBase } from '../utils/paths';
   .meeting-inner a { margin-left: auto; border: 0; padding-right: 0; color: var(--gold); text-decoration: none; }
   .meeting-inner a:hover { color: white; }
   .about-intro { scroll-margin-top: 6rem; padding-block: 5rem; background: var(--paper); overflow: hidden; }
+  .recognition-link { color: var(--ink); font-weight: 650; text-decoration-color: #11171940; text-underline-offset: .2em; }
+  .recognition-link:hover { color: var(--red-dark); text-decoration-color: currentColor; }
   .about-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 5rem; align-items: center; }
   h2 { margin: 0 0 1.5rem; font-size: clamp(2.4rem, 3.8vw, 3.7rem); line-height: 1.05; font-weight: 400; letter-spacing: .02em; }
   .about-copy > p:not(.section-label) { max-width: 34rem; color: #444847; font-size: .96rem; line-height: 1.75; }

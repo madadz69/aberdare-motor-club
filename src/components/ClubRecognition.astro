@@ -1,0 +1,16 @@
+---
+import { withBase } from '../utils/paths';
+
+---
+
+<a class="club-recognition" href="https://motorsportuk.org/clubs-organisers/find-clubs/">
+  <img src={withBase('images/motorsport-uk-logo-white.svg')} alt="Motorsport UK" width="532" height="92" loading="lazy" decoding="async" />
+  <span>Recognised club</span>
+</a>
+
+<style>
+  .club-recognition { display: flex; flex-direction: column; align-items: center; gap: .65rem; width: fit-content; max-width: 100%; color: #fff; text-decoration: none; }
+  img { display: block; width: 10rem; max-width: 100%; height: auto; filter: brightness(0) invert(1); }
+  span { color: #fff; font-size: .75rem; line-height: 1.4; text-align: center; }
+  .club-recognition:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+</style>

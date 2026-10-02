@@ -1,6 +1,7 @@
 ---
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { withBase } from '../utils/paths';
+import ClubRecognition from './ClubRecognition.astro';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -24,7 +25,6 @@ const currentYear = new Date().getFullYear();
           </div>
           <div class="col footer-brand-copy">
             <p class="tagline">Motoring, motorsport and good company in South Wales.</p>
-            <p class="affiliation">A Motorsport UK recognised club.</p>
           </div>
         </div>
       </div>
@@ -63,6 +63,7 @@ const currentYear = new Date().getFullYear();
         <span class="design-credit-label">Website by</span>
         <span class="design-credit-name">JenkoWeb Ltd</span>
       </p>
+      <div class="footer-recognition"><ClubRecognition /></div>
     </div>
   </div>
 </footer>
@@ -96,17 +97,17 @@ const currentYear = new Date().getFullYear();
     margin: 0;
   }
 
-  .affiliation {
-    margin: 0.5rem 0 0;
-    color: #9ca3af;
-    font-size: 0.875rem;
-  }
-
   .footer-heading {
     margin: 0 0 0.75rem;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 700;
+  }
+
+  .footer-recognition {
+    justify-self: end;
+    width: 100%;
+    max-width: 10rem;
   }
 
   .footer-copy {
@@ -144,15 +145,14 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-bottom-content {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
     gap: 1rem 2rem;
   }
 
   .footer-bottom .design-credit {
-    margin-left: auto;
-    text-align: right;
+    text-align: center;
   }
 
   .design-credit-label {
@@ -176,16 +176,21 @@ const currentYear = new Date().getFullYear();
     white-space: nowrap;
   }
 
-  @media (max-width: 575px) {
+  @media (max-width: 767px) {
     .footer-bottom-content {
-      flex-direction: column;
-      align-items: stretch;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
     }
 
     .footer-bottom .design-credit {
       width: 100%;
       padding-top: 1rem;
       border-top: 1px solid #293345;
+    }
+
+    .footer-recognition {
+      justify-self: center;
     }
   }
 
